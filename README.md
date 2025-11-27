@@ -8,6 +8,7 @@ This repository contains:
 - Raspberry Pi scanning + MQTT scripts
 - Configuration for AWS S3 + MQTT communication
 
+```
 Project structure:
 rogueeye-capstone/
 ├─ pom.xml
@@ -20,6 +21,8 @@ rogueeye-capstone/
 │  ├─ runscanner.sh
 │  └─ requirements.txt
 └─ README.md
+```
+
 
 This repo contains source code only, not the deployed `/capstone_bundle` folders.
 
