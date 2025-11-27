@@ -1,0 +1,209 @@
+[
+    {
+        "essid": "<hidden>",
+        "bssid": "0c:ac:8a:e5:c4:9d",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.288807"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "fa:ab:05:58:50:11",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.319071"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "fa:ab:05:58:50:12",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.331951"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "00:cb:51:a1:79:aa",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.343808"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "40:f2:01:f3:37:ef",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.274197"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "e0:b2:60:42:85:89",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.233646"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "76:6c:63:5b:17:c8",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.303763"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "86:13:1d:be:b4:f4",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:24.990113"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "42:f2:01:f3:37:ef",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.142602"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "8a:13:1d:be:b4:f4",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.003782"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "60:6c:63:5b:17:c8",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.073163"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "4a:29:52:fe:66:09",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:24.859886"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "48:29:52:fe:66:0e",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:24.054348"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "92:a7:b9:53:0f:61",
+        "channel": 2,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.087677"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "82:13:1d:be:b4:f4",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.196691"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "b0:a7:b9:53:0f:6f",
+        "channel": 2,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.100918"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "ce:7b:5c:46:c5:0e",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.219816"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "b0:92:4a:0d:61:a5",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:11.394919"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "2c:79:d7:03:df:6e",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:50:01.171855"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "20:9a:7d:02:3a:66",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:24.954477"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "22:9a:7d:02:3a:61",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:25.179620"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "54:64:d9:f6:32:f8",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:02.762574"
+    },
+    {
+        "essid": "<hidden>",
+        "bssid": "00:25:ca:84:87:6f",
+        "channel": 1,
+        "auth": "WPA2",
+        "enc": "CCMP",
+        "avg_power": -40,
+        "scanned_at": "2025-11-16T17:51:24.315062"
+    }
+]
