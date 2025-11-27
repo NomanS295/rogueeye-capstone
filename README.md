@@ -1,237 +1,197 @@
- 
-
 # RogueEye – Cloud-Based Rogue Wi-Fi Detector
+RogueEye is a cloud-based system that detects rogue / unauthorized Wi-Fi access points using a Raspberry Pi scanner, AWS S3, a Spring Boot backend, and an Angular admin dashboard. It was built as a Sheridan SDNE Capstone project.
 
-RogueEye is a cloud-based system that detects **rogue / unauthorized Wi-Fi access points** using a **Raspberry Pi scanner**, **AWS S3**, a **Spring Boot backend**, and an **Angular admin dashboard**.
-
-It was built as a Sheridan SDNE Capstone project.
-
----
-
-## 1. What’s in this repo?
-
-At a high level:
-
-- **Spring Boot backend** (Java, Maven)
-- **Angular frontend** (login, dashboard, scans, alerts, remote admin)
-- **Raspberry Pi node scripts** (scanner + MQTT listener)
-- Configs to glue everything through **AWS S3** and **MQTT**
+## What’s in this repo?
+This repository contains:
+- Spring Boot backend (Java/Maven)
+- Angular frontend (login, dashboard, scans, alerts, remote admin)
+- Raspberry Pi scanning + MQTT scripts
+- Configuration for AWS S3 + MQTT communication
 
 Project structure:
-
-```
 rogueeye-capstone/
 ├─ pom.xml
-├─ src/
-│  ├─ main/java/ca/...           # Backend logic
-│  ├─ resources/application.properties
-│  └─ capstone-frontend/         # Angular UI
+├─ src/main/java/... (backend logic)
+├─ src/main/resources/application.properties
+├─ src/main/capstone-frontend/ (Angular UI)
 ├─ raspberry-pi/
 │  ├─ scan.py
-│  ├─ runscanner.sh
 │  ├─ mqtt_listener.py
+│  ├─ runscanner.sh
 │  └─ requirements.txt
 └─ README.md
+
+This repo contains source code only, not the deployed `/capstone_bundle` folders.
+
+## High-Level Architecture
+Raspberry Pi Scanner:
+- External Wi-Fi adapter in monitor mode
+- scan.py sniffs ESSID/BSSID/channel
+- Stores locally + generates scan_results.json and alert.json
+- Uploads JSON files to AWS S3 every few seconds
+
+AWS S3:
+- Acts as the data source for the backend
+- Holds latest scan_results.json and alert.json
+
+Spring Boot Backend (EC2):
+- Pulls JSON data from S3
+- Exposes REST endpoints under /api/scans and /api/remote
+- Publishes MQTT commands to Pi
+- Streams updates to Angular using WebSockets (/topic/scans, /topic/alerts)
+
+Angular Frontend (EC2):
+- JWT login + change password
+- Dashboard with live scan + alert updates
+- Scans page (detailed list)
+- Alerts page (suspicious networks)
+- Remote Admin (start/stop scan, update allowlist, custom command)
+
+## Prerequisites
+EC2:
+- Ubuntu
+- Java 17+
+- Node.js + npm
+- git
+- mosquitto MQTT broker
+- Open ports: 22, 80, 8080, 1883
+
+Raspberry Pi:
+- Pi 4/5
+- External Wi-Fi adapter supporting monitor mode
+- Python 3 + pip
+- AWS credentials configured
+
+## Clone the Project
+EC2:
 ```
-
-> ⚠️ Note: This repo holds the **source code**, not the built `/capstone_bundle` deploy folders.
-
----
-
-## 2. High-Level Architecture
-
-### 🔹 Raspberry Pi Scanner
-- Uses external Wi-Fi adapter in monitor mode
-- `scan.py` sniffs beacon frames (ESSID/BSSID/channel)
-- Stores data in JSON/SQLite
-- Uploads to S3 every few seconds
-
-### 🔹 AWS S3
-- Used as a simple **data lake**
-  - `scan_results.json`
-  - `alert.json`
-
-### 🔹 Spring Boot Backend (EC2)
-- REST API under `/api/scans` and `/api/remote`
-- Pulls from S3 using `S3Service`
-- Sends MQTT messages to Pi via `MqttPublisher`
-- Uses WebSockets (`/topic/scans`) to push live updates to Angular UI
-
-### 🔹 Angular Frontend (EC2)
-- JWT-based Login
-- Dashboard: Recent scans and alerts
-- Remote Admin: Start/Stop scan, update allowlist, send custom command
-
----
-
-## 3. Prerequisites
-
-### ☁️ EC2 Instance
-- Ubuntu instance with:
-  - Java 17+
-  - Node.js + npm
-  - git
-  - MQTT Broker (`mosquitto`)
-  - Open ports: 22, 80, 8080, 1883
-
-### 🍓 Raspberry Pi
-- Pi 4/5 with:
-  - External Wi-Fi adapter (monitor mode)
-  - Python 3
-  - pip
-  - `~/.aws/credentials` configured
-
----
-
-## 4. Clone the Project
-
-### On EC2:
-```bash
 cd ~
 git clone https://github.com/NomanS295/rogueeye-capstone.git
 cd rogueeye-capstone
 ```
 
-### On Raspberry Pi:
-```bash
+Pi:
+```
 cd ~
 git clone https://github.com/NomanS295/rogueeye-capstone.git
 cd rogueeye-capstone/raspberry-pi
 ```
 
----
-
-## 5. Backend Setup (Spring Boot)
-
-### 5.1 Configure `application.properties`
-```bash
+## Backend Setup (EC2)
+Configure application.properties:
+```
 nano src/main/resources/application.properties
 ```
 
-Edit values:
-```properties
+Set:
+```
 rapd.s3.bucketName=YOUR_BUCKET_NAME
 rapd.s3.region=us-east-1
-
 rapd.mqtt.host=YOUR_EC2_PUBLIC_IP
 rapd.mqtt.port=1883
 rapd.mqtt.username=piagent
 rapd.mqtt.password=YOUR_STRONG_PASS
 rapd.mqtt.topicPrefix=rapd/commands
-
 flask.api.baseUrl=http://127.0.0.1:15000
 ```
 
----
-
-### 5.2 Build backend
-```bash
+Build backend:
+```
 ./mvnw -q -DskipTests package
 ```
 
-You should get:
+Run backend:
 ```
-target/*.jar
-```
-
----
-
-### 5.3 Run backend
-```bash
 nohup java -jar target/*.jar > backend.log 2>&1 &
 ```
 
 Verify:
-```bash
-ss -tulnp | grep 8080
+```
 curl http://localhost:8080/actuator/health
 ```
 
----
-
-## 6. Frontend Setup (Angular)
-
-### 6.1 Install dependencies
-```bash
-cd ~/rogueeye-capstone/src/main/capstone-frontend
+## Frontend Setup (EC2)
+Install dependencies:
+```
+cd src/main/capstone-frontend
 npm install
 ```
 
-### 6.2 Configure backend URL
-```bash
+Configure backend URL:
+```
 nano src/environments/environment.ts
 ```
 
 Set:
-```ts
-export const environment = {
-  production: false,
-  apiBaseUrl: 'http://YOUR_EC2_PUBLIC_IP:8080'
-};
+```
+apiBaseUrl: 'http://YOUR_EC2_PUBLIC_IP:8080'
 ```
 
-### 6.3 Build Angular app
-```bash
+Build frontend:
+```
 npm run build -- --configuration production
 ```
 
-Output:
+Serve frontend:
 ```
-dist/capstone-frontend/browser/
-```
-
-### 6.4 Serve frontend
-```bash
 sudo npm install -g http-server
 cd dist/capstone-frontend/browser
 nohup http-server . -p 80 -a 0.0.0.0 -c-1 > ~/frontend.log 2>&1 &
 ```
 
-Test in browser:  
-`http://YOUR_EC2_PUBLIC_IP`
+Access UI:
+http://YOUR_EC2_PUBLIC_IP
 
----
-
-## 7. Raspberry Pi Setup
-
-### 7.1 Install dependencies
-```bash
+## Raspberry Pi Setup
+Install dependencies:
+```
 cd ~/rogueeye-capstone/raspberry-pi
 pip3 install -r requirements.txt
 ```
 
-### 7.2 AWS credentials
-```bash
+Configure AWS credentials:
+```
 mkdir -p ~/.aws
 nano ~/.aws/credentials
 ```
 
-```ini
+Add:
+```
 [default]
 aws_access_key_id=YOUR_KEY
 aws_secret_access_key=YOUR_SECRET
 ```
 
-```ini
-# ~/.aws/config
+Configure region:
+```
+nano ~/.aws/config
+```
+
+```
 [default]
 region=us-east-1
 ```
 
----
+Configure scan.py:
+```
+nano scan.py
+```
 
-### 7.3 Configure `scan.py`
-```python
+Set:
+```
 BUCKET_NAME = "YOUR_BUCKET_NAME"
-ADAPTER = "wlxcc641aeb88bf"
+ADAPTER = "YOUR_ADAPTER"
 SCAN_DURATION = 5
 SCAN_INTERVAL = 5
 ```
 
----
+Configure mqtt_listener.py:
+```
+nano mqtt_listener.py
+```
 
-### 7.4 Configure `mqtt_listener.py`
-```python
+Set:
+```
 BROKER = "YOUR_EC2_PUBLIC_IP"
 PORT = 1883
 USERNAME = "piagent"
@@ -239,93 +199,66 @@ PASSWORD = "YOUR_STRONG_PASS"
 TOPIC = "rapd/commands"
 ```
 
-Accepts messages like:
-```json
-{"action": "start_scan"}
-{"action": "stop_scan"}
-{"action": "update_allowlist", "args": {"allowlist": ["BSSID/ESSID"]}}
-{"action": "custom_command", "args": {"command": "ls"}}
+Start scanner:
 ```
-
----
-
-### 7.5 Start Scanner
-```bash
 sudo bash runscanner.sh
 ```
 
----
-
-### 7.6 Start MQTT Listener
-```bash
-cd ~/rogueeye-capstone/raspberry-pi
+Start MQTT listener:
+```
 sudo python3 mqtt_listener.py
 ```
 
-Output:
-```
-[✓] Connected to broker
-[📡] Subscribed to topic: rapd/commands
-```
+Expected:
+Connected to broker
+Subscribed to topic rapd/commands
 
----
+## Using the System
+Go to:
+http://YOUR_EC2_PUBLIC_IP
 
-## 8. Using the System
-
-Visit in browser:  
-`http://YOUR_EC2_PUBLIC_IP`
-
-Login and navigate:
-- Dashboard
-- Scans
-- Alerts
-- Remote Admin
+Login → Dashboard
 
 You can:
-- ✅ Start / Stop Scan
-- ✅ Update Allowlist
-- ✅ Send Custom Commands
+- Start/Stop Scan
+- Update Allowlist
+- Send Custom Commands
 
-Scans will begin appearing automatically if Pi is uploading to S3.
+Data will appear automatically if Pi uploads to S3 and backend is running.
 
----
+## Teammate Setup Checklist
+EC2:
+- application.properties (S3 + MQTT settings)
+- environment.ts (apiBaseUrl)
+- Build backend
+- Build and serve frontend
 
-## 9. Teammate Customization Checklist
+Pi:
+- AWS credentials
+- scan.py (BUCKET_NAME + ADAPTER)
+- mqtt_listener.py (BROKER + credentials)
 
-Each teammate must configure:
+Once configured, the system will work end-to-end.
 
-### EC2:
-- `application.properties`
-  - `rapd.s3.bucketName`, `rapd.mqtt.*`
+## Security Notes
+Do NOT commit:
+- AWS keys
+- PEM files
+- Passwords
 
-### Angular:
-- `environment.ts`
-  - `apiBaseUrl`
+This system is intended for defensive use only.
 
-### Raspberry Pi:
-- `scan.py` → `BUCKET_NAME`, `ADAPTER`
-- `mqtt_listener.py` → `BROKER`, `USERNAME`, `PASSWORD`
+## Troubleshooting
+Check:
+backend.log
+frontend.log
+Pi terminal output
 
----
+Confirm:
+- Correct bucket name
+- Correct MQTT settings
+- Correct API URLs
+- Ports open on EC2
 
-## 10. Security Notes
+If all match, RogueEye will display live scan data and remote commands will reach the Pi successfully.
 
-- ❌ Do NOT commit:
-  - AWS keys
-  - PEM files
-  - Passwords
-
-Use `.env`, Secrets Manager, or IAM roles instead.  
-This project is intended for **defensive use only**.
-
----
-
-## ✅ Troubleshooting
-
-- Check logs on EC2:
-  - `backend.log`, `frontend.log`
-- Watch terminal output on Pi
-- Make sure:
-  - Bucket names match
-  - MQTT credentials match
-  - Backend is running
