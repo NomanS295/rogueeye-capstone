@@ -243,13 +243,6 @@ Pi:
 
 Once configured, the system will work end-to-end.
 
-## Security Notes
-Do NOT commit:
-- AWS keys
-- PEM files
-- Passwords
-
-This system is intended for defensive use only.
 
 ## Troubleshooting
 Check:
