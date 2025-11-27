@@ -1,0 +1,174 @@
+2025-10-24T20:44:56.447Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] .k.CapstoneGagandeepKoonerAvaApplication : Starting CapstoneGagandeepKoonerAvaApplication v0.0.1-SNAPSHOT using Java 21.0.8 with PID 335140 (/home/ubuntu/capstone_bundle/backend/app.jar started by ubuntu in /home/ubuntu/Capstone_Gagandeep_Kooner_Ava_4/Capstone_Gagandeep_Kooner_Ava)
+2025-10-24T20:44:56.464Z DEBUG 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] .k.CapstoneGagandeepKoonerAvaApplication : Running with Spring Boot v3.4.4, Spring v6.2.5
+2025-10-24T20:44:56.465Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] .k.CapstoneGagandeepKoonerAvaApplication : No active profile set, falling back to 1 default profile: "default"
+2025-10-24T20:44:58.850Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-24T20:44:58.957Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 92 ms. Found 1 JPA repository interface.
+2025-10-24T20:45:00.557Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-24T20:45:00.579Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-24T20:45:00.581Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-10-24T20:45:00.623Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-24T20:45:00.624Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4009 ms
+2025-10-24T20:45:01.395Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-24T20:45:01.514Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-10-24T20:45:01.587Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-24T20:45:02.280Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-24T20:45:02.348Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-24T20:45:03.112Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1b10f60e
+2025-10-24T20:45:03.117Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-24T20:45:03.208Z  WARN 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-24T20:45:03.211Z  WARN 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-24T20:45:03.252Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-24T20:45:05.076Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-24T20:45:05.193Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-24T20:45:05.973Z DEBUG 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] c.s.koonerga.security.JwtAuthFilter      : Filter 'jwtAuthFilter' configured for use
+2025-10-24T20:45:06.099Z  WARN 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mqttPublisher' defined in URL [jar:nested:/home/ubuntu/capstone_bundle/backend/app.jar/!BOOT-INF/classes/!/ca/sheridancollege/koonerga/infra/MqttPublisher.class]: Failed to instantiate [ca.sheridancollege.koonerga.infra.MqttPublisher]: Constructor threw exception
+2025-10-24T20:45:06.102Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-24T20:45:06.107Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-24T20:45:06.119Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-24T20:45:06.123Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-10-24T20:45:06.151Z  INFO 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-24T20:45:06.179Z ERROR 335140 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mqttPublisher' defined in URL [jar:nested:/home/ubuntu/capstone_bundle/backend/app.jar/!BOOT-INF/classes/!/ca/sheridancollege/koonerga/infra/MqttPublisher.class]: Failed to instantiate [ca.sheridancollege.koonerga.infra.MqttPublisher]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:321) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:309) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1381) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:347) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1155) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1121) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1056) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.5.jar!/:6.2.5]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.5.jar!/:6.2.5]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.4.jar!/:3.4.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.4.jar!/:3.4.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.4.jar!/:3.4.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.4.jar!/:3.4.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.4.jar!/:3.4.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.4.jar!/:3.4.4]
+	at ca.sheridancollege.koonerga.CapstoneGagandeepKoonerAvaApplication.main(CapstoneGagandeepKoonerAvaApplication.java:12) ~[!/:0.0.1-SNAPSHOT]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) ~[app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) ~[app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) ~[app.jar:0.0.1-SNAPSHOT]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [ca.sheridancollege.koonerga.infra.MqttPublisher]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:222) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:145) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:318) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	... 26 common frames omitted
+Caused by: org.eclipse.paho.client.mqttv3.MqttException: Unable to connect to server
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:80) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar!/:na]
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:724) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:74) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar!/:na]
+	... 2 common frames omitted
+
+2025-10-24T20:53:32.760Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] .k.CapstoneGagandeepKoonerAvaApplication : Starting CapstoneGagandeepKoonerAvaApplication v0.0.1-SNAPSHOT using Java 21.0.8 with PID 336077 (/home/ubuntu/capstone_bundle/backend/app.jar started by ubuntu in /home/ubuntu/Capstone_Gagandeep_Kooner_Ava_4/Capstone_Gagandeep_Kooner_Ava)
+2025-10-24T20:53:32.764Z DEBUG 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] .k.CapstoneGagandeepKoonerAvaApplication : Running with Spring Boot v3.4.4, Spring v6.2.5
+2025-10-24T20:53:32.768Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] .k.CapstoneGagandeepKoonerAvaApplication : No active profile set, falling back to 1 default profile: "default"
+2025-10-24T20:53:35.283Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-24T20:53:35.409Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 109 ms. Found 1 JPA repository interface.
+2025-10-24T20:53:36.983Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-24T20:53:37.006Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-24T20:53:37.007Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-10-24T20:53:37.051Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-24T20:53:37.052Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4109 ms
+2025-10-24T20:53:37.831Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-24T20:53:37.963Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-10-24T20:53:38.030Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-24T20:53:38.568Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-24T20:53:38.645Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-24T20:53:39.292Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@75063bd0
+2025-10-24T20:53:39.295Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-24T20:53:39.428Z  WARN 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-24T20:53:39.432Z  WARN 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-24T20:53:39.486Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-24T20:53:41.236Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-24T20:53:41.348Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-24T20:53:42.081Z DEBUG 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] c.s.koonerga.security.JwtAuthFilter      : Filter 'jwtAuthFilter' configured for use
+2025-10-24T20:53:42.187Z  WARN 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mqttPublisher' defined in URL [jar:nested:/home/ubuntu/capstone_bundle/backend/app.jar/!BOOT-INF/classes/!/ca/sheridancollege/koonerga/infra/MqttPublisher.class]: Failed to instantiate [ca.sheridancollege.koonerga.infra.MqttPublisher]: Constructor threw exception
+2025-10-24T20:53:42.190Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-24T20:53:42.194Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-24T20:53:42.207Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-24T20:53:42.213Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-10-24T20:53:42.248Z  INFO 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-24T20:53:42.277Z ERROR 336077 --- [Capstone_Gagandeep_Kooner_Ava] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mqttPublisher' defined in URL [jar:nested:/home/ubuntu/capstone_bundle/backend/app.jar/!BOOT-INF/classes/!/ca/sheridancollege/koonerga/infra/MqttPublisher.class]: Failed to instantiate [ca.sheridancollege.koonerga.infra.MqttPublisher]: Constructor threw exception
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:321) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:309) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1381) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1218) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:347) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1155) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1121) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1056) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.5.jar!/:6.2.5]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.5.jar!/:6.2.5]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.4.jar!/:3.4.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.4.jar!/:3.4.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.4.jar!/:3.4.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.4.jar!/:3.4.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.4.jar!/:3.4.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.4.jar!/:3.4.4]
+	at ca.sheridancollege.koonerga.CapstoneGagandeepKoonerAvaApplication.main(CapstoneGagandeepKoonerAvaApplication.java:12) ~[!/:0.0.1-SNAPSHOT]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) ~[app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) ~[app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) ~[app.jar:0.0.1-SNAPSHOT]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [ca.sheridancollege.koonerga.infra.MqttPublisher]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:222) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:145) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:318) ~[spring-beans-6.2.5.jar!/:6.2.5]
+	... 26 common frames omitted
+Caused by: org.eclipse.paho.client.mqttv3.MqttException: Unable to connect to server
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:80) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar!/:na]
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:724) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar!/:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:549) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:74) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar!/:na]
+	... 2 common frames omitted
+

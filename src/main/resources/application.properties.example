@@ -1,0 +1,60 @@
+spring.application.name=Capstone_Gagandeep_Kooner_Ava
+server.port=8080
+server.address=0.0.0.0
+
+########################################
+# Database (MySQL)
+########################################
+spring.datasource.url=jdbc:mysql://localhost:3306/capstone_db
+spring.datasource.username=capstone
+spring.datasource.password=password123
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+
+########################################
+# JWT
+########################################
+jwt.secret=thisIsASecureJWTSecretKeyThatIsAtLeast32Chars
+jwt.expirationMs=86400000
+
+########################################
+# AWS S3 (Pi Upload Storage)
+########################################
+aws.region=us-east-2
+aws.s3.bucket-name=capstone-2025-wifi-scanner-data-noman
+
+########################################
+# Flask API (Pi)
+########################################
+flask.api.base-url=http://192.168.40.55:5000
+spring.web.client.connect-timeout=5000
+spring.web.client.read-timeout=5000
+
+########################################
+# RAPD MQTT
+########################################
+rapd.mqtt.host=YOUR_EC2_IP
+rapd.mqtt.port=1883
+rapd.mqtt.username=piagent
+rapd.mqtt.password=CHANGE_ME
+rapd.mqtt.topicPrefix=rapd/commands
+
+########################################
+# RAPD S3 (Backend Access)
+########################################
+rapd.s3.bucket=your-bucket-name
+rapd.s3.region=us-east-1
+
+########################################
+# Health + Logs
+########################################
+management.endpoints.web.exposure.include=health,info,metrics
+management.endpoint.health.show-details=always
+management.endpoint.metrics.enabled=true
+
+logging.level.root=INFO
+logging.level.ca.sheridancollege.koonerga=DEBUG
+logging.file.name=logs/spring-backend.log
+
