@@ -1,8 +1,21 @@
+# Maven
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+
+### Logs & Runtime Files ###
+logs/
+*.log
+data/
+paho*/
+ec2-producer-*/
+awscliv2.zip
+
+### Spring Boot Runtime ###
+*.jar
+*.war
 
 ### STS ###
 .apt_generated
@@ -14,7 +27,7 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
 *.ipr
@@ -31,3 +44,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### OS Files ###
+.DS_Store
+Thumbs.db
+
+### Environment / Secrets ###
+environment*.ts
+application.properties
+*.env
