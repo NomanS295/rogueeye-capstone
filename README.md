@@ -1,3 +1,5 @@
+ 
+
 # RogueEye – Cloud-Based Rogue Wi-Fi Detector
 
 RogueEye is a cloud-based system that detects **rogue / unauthorized Wi-Fi access points** using a **Raspberry Pi scanner**, **AWS S3**, a **Spring Boot backend**, and an **Angular admin dashboard**.
@@ -17,21 +19,20 @@ At a high level:
 
 Project structure:
 
+```
 rogueeye-capstone/
 ├─ pom.xml
 ├─ src/
-│ ├─ main/java/ca/... # Backend logic
-│ ├─ resources/application.properties
-│ └─ capstone-frontend/ # Angular UI
+│  ├─ main/java/ca/...           # Backend logic
+│  ├─ resources/application.properties
+│  └─ capstone-frontend/         # Angular UI
 ├─ raspberry-pi/
-│ ├─ scan.py
-│ ├─ runscanner.sh
-│ ├─ mqtt_listener.py
-│ └─ requirements.txt
+│  ├─ scan.py
+│  ├─ runscanner.sh
+│  ├─ mqtt_listener.py
+│  └─ requirements.txt
 └─ README.md
-
-yaml
-Copy code
+```
 
 > ⚠️ Note: This repo holds the **source code**, not the built `/capstone_bundle` deploy folders.
 
@@ -89,21 +90,26 @@ Copy code
 cd ~
 git clone https://github.com/NomanS295/rogueeye-capstone.git
 cd rogueeye-capstone
-On Raspberry Pi:
-bash
-Copy code
+```
+
+### On Raspberry Pi:
+```bash
 cd ~
 git clone https://github.com/NomanS295/rogueeye-capstone.git
 cd rogueeye-capstone/raspberry-pi
-5. Backend Setup (Spring Boot)
-5.1 Configure application.properties
-bash
-Copy code
-nano src/main/resources/application.properties
-Edit values:
+```
 
-properties
-Copy code
+---
+
+## 5. Backend Setup (Spring Boot)
+
+### 5.1 Configure `application.properties`
+```bash
+nano src/main/resources/application.properties
+```
+
+Edit values:
+```properties
 rapd.s3.bucketName=YOUR_BUCKET_NAME
 rapd.s3.region=us-east-1
 
@@ -114,188 +120,212 @@ rapd.mqtt.password=YOUR_STRONG_PASS
 rapd.mqtt.topicPrefix=rapd/commands
 
 flask.api.baseUrl=http://127.0.0.1:15000
-5.2 Build backend
-bash
-Copy code
+```
+
+---
+
+### 5.2 Build backend
+```bash
 ./mvnw -q -DskipTests package
+```
+
 You should get:
-
-Copy code
+```
 target/*.jar
-5.3 Run backend
-bash
-Copy code
-nohup java -jar target/*.jar > backend.log 2>&1 &
-Verify:
+```
 
-bash
-Copy code
+---
+
+### 5.3 Run backend
+```bash
+nohup java -jar target/*.jar > backend.log 2>&1 &
+```
+
+Verify:
+```bash
 ss -tulnp | grep 8080
 curl http://localhost:8080/actuator/health
-6. Frontend Setup (Angular)
-6.1 Install dependencies
-bash
-Copy code
+```
+
+---
+
+## 6. Frontend Setup (Angular)
+
+### 6.1 Install dependencies
+```bash
 cd ~/rogueeye-capstone/src/main/capstone-frontend
 npm install
-6.2 Configure backend URL
-bash
-Copy code
-nano src/environments/environment.ts
-Set:
+```
 
-ts
-Copy code
+### 6.2 Configure backend URL
+```bash
+nano src/environments/environment.ts
+```
+
+Set:
+```ts
 export const environment = {
   production: false,
   apiBaseUrl: 'http://YOUR_EC2_PUBLIC_IP:8080'
 };
-6.3 Build Angular app
-bash
-Copy code
-npm run build -- --configuration production
-Output:
+```
 
-bash
-Copy code
+### 6.3 Build Angular app
+```bash
+npm run build -- --configuration production
+```
+
+Output:
+```
 dist/capstone-frontend/browser/
-6.4 Serve frontend
-bash
-Copy code
+```
+
+### 6.4 Serve frontend
+```bash
 sudo npm install -g http-server
 cd dist/capstone-frontend/browser
 nohup http-server . -p 80 -a 0.0.0.0 -c-1 > ~/frontend.log 2>&1 &
-Test in browser:
-http://YOUR_EC2_PUBLIC_IP
+```
 
-7. Raspberry Pi Setup
-7.1 Install dependencies
-bash
-Copy code
+Test in browser:  
+`http://YOUR_EC2_PUBLIC_IP`
+
+---
+
+## 7. Raspberry Pi Setup
+
+### 7.1 Install dependencies
+```bash
 cd ~/rogueeye-capstone/raspberry-pi
 pip3 install -r requirements.txt
-7.2 AWS credentials
-bash
-Copy code
+```
+
+### 7.2 AWS credentials
+```bash
 mkdir -p ~/.aws
 nano ~/.aws/credentials
-ini
-Copy code
+```
+
+```ini
 [default]
 aws_access_key_id=YOUR_KEY
 aws_secret_access_key=YOUR_SECRET
-ini
-Copy code
+```
+
+```ini
 # ~/.aws/config
 [default]
 region=us-east-1
-7.3 Configure scan.py
-python
-Copy code
+```
+
+---
+
+### 7.3 Configure `scan.py`
+```python
 BUCKET_NAME = "YOUR_BUCKET_NAME"
 ADAPTER = "wlxcc641aeb88bf"
 SCAN_DURATION = 5
 SCAN_INTERVAL = 5
-7.4 Configure mqtt_listener.py
-python
-Copy code
+```
+
+---
+
+### 7.4 Configure `mqtt_listener.py`
+```python
 BROKER = "YOUR_EC2_PUBLIC_IP"
 PORT = 1883
 USERNAME = "piagent"
 PASSWORD = "YOUR_STRONG_PASS"
 TOPIC = "rapd/commands"
-Accepts messages like:
+```
 
-json
-Copy code
+Accepts messages like:
+```json
 {"action": "start_scan"}
 {"action": "stop_scan"}
 {"action": "update_allowlist", "args": {"allowlist": ["BSSID/ESSID"]}}
 {"action": "custom_command", "args": {"command": "ls"}}
-7.5 Start Scanner
-bash
-Copy code
+```
+
+---
+
+### 7.5 Start Scanner
+```bash
 sudo bash runscanner.sh
-7.6 Start MQTT Listener
-bash
-Copy code
+```
+
+---
+
+### 7.6 Start MQTT Listener
+```bash
 cd ~/rogueeye-capstone/raspberry-pi
 sudo python3 mqtt_listener.py
-Output:
+```
 
-css
-Copy code
+Output:
+```
 [✓] Connected to broker
 [📡] Subscribed to topic: rapd/commands
-8. Using the System
-Visit in browser:
-http://YOUR_EC2_PUBLIC_IP
+```
+
+---
+
+## 8. Using the System
+
+Visit in browser:  
+`http://YOUR_EC2_PUBLIC_IP`
 
 Login and navigate:
-
-Dashboard
-
-Scans
-
-Alerts
-
-Remote Admin
+- Dashboard
+- Scans
+- Alerts
+- Remote Admin
 
 You can:
-
-✅ Start / Stop Scan
-
-✅ Update Allowlist
-
-✅ Send Custom Commands
+- ✅ Start / Stop Scan
+- ✅ Update Allowlist
+- ✅ Send Custom Commands
 
 Scans will begin appearing automatically if Pi is uploading to S3.
 
-9. Teammate Customization Checklist
+---
+
+## 9. Teammate Customization Checklist
+
 Each teammate must configure:
 
-EC2:
-application.properties
+### EC2:
+- `application.properties`
+  - `rapd.s3.bucketName`, `rapd.mqtt.*`
 
-rapd.s3.bucketName, rapd.mqtt.*
+### Angular:
+- `environment.ts`
+  - `apiBaseUrl`
 
-Angular:
-environment.ts
+### Raspberry Pi:
+- `scan.py` → `BUCKET_NAME`, `ADAPTER`
+- `mqtt_listener.py` → `BROKER`, `USERNAME`, `PASSWORD`
 
-apiBaseUrl
+---
 
-Raspberry Pi:
-scan.py → BUCKET_NAME, ADAPTER
+## 10. Security Notes
 
-mqtt_listener.py → BROKER, USERNAME, PASSWORD
+- ❌ Do NOT commit:
+  - AWS keys
+  - PEM files
+  - Passwords
 
-10. Security Notes
-❌ Do NOT commit:
+Use `.env`, Secrets Manager, or IAM roles instead.  
+This project is intended for **defensive use only**.
 
-AWS keys
+---
 
-PEM files
+## ✅ Troubleshooting
 
-Passwords
-
-Use .env, Secrets Manager, or IAM roles instead.
-This project is intended for defensive use only.
-
-✅ Troubleshooting
-Check logs on EC2:
-
-backend.log, frontend.log
-
-Watch terminal output on Pi
-
-Make sure:
-
-Bucket names match
-
-MQTT credentials match
-
-Backend is running
-
-
-
-
+- Check logs on EC2:
+  - `backend.log`, `frontend.log`
+- Watch terminal output on Pi
+- Make sure:
+  - Bucket names match
+  - MQTT credentials match
+  - Backend is running
